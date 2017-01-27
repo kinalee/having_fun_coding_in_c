@@ -12,6 +12,8 @@ int main(){
 		printf("Error\n");
 		return 1;
 	}
+
+	printf("*Factorial Calculator*\n\n");
 	while(1){
                 beginning:
 
@@ -19,15 +21,13 @@ int main(){
 		fgets(inp, 100, stdin);
 		if(strcmp(inp, "quit\n") == 0)
 		{
-			printf("Good bye!\n");
+			printf("\nGood bye!\n");
 			return 0;
 		}
 		if(inp[0] == '\n' || inp == NULL)
-		{
-			printf("Invalid Input: Please enter an integer\n");
 			goto beginning;
-		}
-		if(inp[0] == "-" && isdigit(inp[1]) != 0)
+
+		if(inp[0] == '-' && isdigit(inp[1]) != 0)
 		{
 			printf("Invalid Input: Please enter a positive integer\n");
 			goto beginning;

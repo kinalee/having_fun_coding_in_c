@@ -3,43 +3,63 @@
 
 int main(){
 
-	int i, n, h;
-	int j = 1;
+	char *inp;
+	int i, num, res;
 
-	printf("* Do not enter a letter.\n");
-
-	while(1){
-
-		printf("Enter a digit (enter 0 to quit): ");
-		scanf(" %d", &n);
-
-		if(n == 0){
-
-			break;
-
-		}if(0<n && n<10){
-
-			printf("%d! = ", n);
-
-			for(i=1; i<n; ++i){
-				printf("%d * ", i);
-				h = j * i;
-				j = h;
-			}
-
-			j = h * n;
-			printf("%d = %d\n", n, j);
-			j = h = 1;
-
-		}else{
-			printf("Incorrect input\n");
-			continue;
-		}
-
-
-
+	inp = malloc(sizeof(char) * 100);
+	if (inp == NULL)
+	{
+		printf("Error\n");
+		return 1;
 	}
+	while(1){
+                beginning:
 
+		printf("Enter a number (enter quit to quit): ");
+		fgets(inp, 100, stdin);
+		if(strcmp(inp, "quit\n") == 0)
+		{
+			printf("Good bye!\n");
+			return 0;
+		}
+		if(inp[0] == '\n' || inp == NULL)
+		{
+			printf("Invalid Input: Please enter an integer\n");
+			goto beginning;
+		}
+		if(inp[0] == "-")
+		{
+			printf("Invalid Input: Please enter a positive integer\n");
+			goto beginning;
+		}
+		i = 0;
+		while(inp[i] != '\n')
+		{
+			if (isdigit(inp[i]) == 0)
+			{
+				printf("Invalid Input: Please enter an integer\n");
+				goto beginning;
+			}
+			else
+				++i;
+		}
+		num = atoi(inp);
+		if (num == 0 || num == 1)
+			printf("%d! = 1\n", num);
+		else
+		{
+			printf("%d! =", num);
+			res = 1;
+			while (num > 0)
+			{
+				printf(" %d", num);
+				if (num > 1)
+					printf(" *");
+				res *= num;
+				--num;
+			}
+			printf(" = %d\n", res);
+		}
+	}
 	return 0;
-
 }

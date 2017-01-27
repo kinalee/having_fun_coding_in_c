@@ -2,6 +2,7 @@
 
 ###Description
 This program calculates the factorial value of a given number.
+(The input must be a positive integer)
 
 ###Usage
 1. Compile the factorial.c program.

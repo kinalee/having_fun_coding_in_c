@@ -27,7 +27,7 @@ int main(){
 			printf("Invalid Input: Please enter an integer\n");
 			goto beginning;
 		}
-		if(inp[0] == "-")
+		if(inp[0] == "-" && isdigit(inp[1]) != 0)
 		{
 			printf("Invalid Input: Please enter a positive integer\n");
 			goto beginning;

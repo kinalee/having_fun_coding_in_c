@@ -10,7 +10,8 @@ int main(){
 	if (inp == NULL){
 		printf("Error\n");
 		return 1;
-	}printf("----------------------\n");
+	}
+	printf("----------------------\n");
 	printf("*Factorial Calculator*\n");
 	printf("----------------------\n\n");
 	while(1){
@@ -21,10 +22,10 @@ int main(){
 		if(strcmp(inp, "quit\n") == 0){
 			printf("\nGood bye!\n");
 			return 0;
-		}if(inp[0] == '\n' || inp == NULL)
+		}else if(inp[0] == '\n' || inp == NULL)
 			 goto beginning;
 
-		if(inp[0] == '-' && isdigit(inp[1]) != 0){
+		else if(inp[0] == '-' && isdigit(inp[1]) != 0){
 			printf("Invalid Input: Please enter a positive integer\n");
 			goto beginning;
 		}
@@ -54,3 +55,4 @@ int main(){
 	}
 	return 0;
 }
+x

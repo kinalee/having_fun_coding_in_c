@@ -7,51 +7,42 @@ int main(){
 	int i, num, res;
 
 	inp = malloc(sizeof(char) * 100);
-	if (inp == NULL)
-	{
+	if (inp == NULL){
 		printf("Error\n");
 		return 1;
-	}
-
-	printf("*Factorial Calculator*\n\n");
+	}printf("----------------------\n");
+	printf("*Factorial Calculator*\n");
+	printf("----------------------\n\n");
 	while(1){
                 beginning:
 
 		printf("Enter a number (enter quit to quit): ");
 		fgets(inp, 100, stdin);
-		if(strcmp(inp, "quit\n") == 0)
-		{
+		if(strcmp(inp, "quit\n") == 0){
 			printf("\nGood bye!\n");
 			return 0;
-		}
-		if(inp[0] == '\n' || inp == NULL)
-			goto beginning;
+		}if(inp[0] == '\n' || inp == NULL)
+			 goto beginning;
 
-		if(inp[0] == '-' && isdigit(inp[1]) != 0)
-		{
+		if(inp[0] == '-' && isdigit(inp[1]) != 0){
 			printf("Invalid Input: Please enter a positive integer\n");
 			goto beginning;
 		}
 		i = 0;
-		while(inp[i] != '\n')
-		{
-			if (isdigit(inp[i]) == 0)
-			{
+		while(inp[i] != '\n'){
+			if (isdigit(inp[i]) == 0){
 				printf("Invalid Input: Please enter an integer\n");
 				goto beginning;
-			}
-			else
+			}else
 				++i;
 		}
 		num = atoi(inp);
 		if (num == 0 || num == 1)
 			printf("%d! = 1\n", num);
-		else
-		{
+		else{
 			printf("%d! =", num);
 			res = 1;
-			while (num > 0)
-			{
+			while (num > 0){
 				printf(" %d", num);
 				if (num > 1)
 					printf(" *");
